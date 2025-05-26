@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest run --reporter verbose"
+    "test": "vitest"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
