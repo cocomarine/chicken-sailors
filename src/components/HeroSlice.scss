@@ -1,6 +1,6 @@
 .hero {
   width: 100%;
-  background: #eff6ff; // bg-blue-50
+  background: hsl(var(--secondary));
   padding: 3rem 0;
 
   @media (min-width: 768px) {
