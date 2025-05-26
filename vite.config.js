@@ -10,4 +10,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./vitest.setup.js",
+    css: true,
+    coverage: {
+      provider: "v8",
+      reporter: ["verbose", "text", "json", "html"]
+    },    
+  }
 })
