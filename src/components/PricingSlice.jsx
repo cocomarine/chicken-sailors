@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react"
 import { fetchPricingPlans } from "../services/api"
 import PricingCard from "./PricingCard"
 import { Button } from "./ui/button"
 
 const PricingSlice = () => {
-  const pricingPlans = fetchPricingPlans()
+  const [pricingPlans, setPricingPlans] = useState([])
+
+  useEffect(() => {
+    const loadPricingPlans = async () => {
+      const data = await fetchPricingPlans()
+      setPricingPlans(data)
+    }
+
+    loadPricingPlans()
+  }
+  , [])
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32">

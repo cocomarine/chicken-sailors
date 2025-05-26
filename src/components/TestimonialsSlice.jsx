@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react"
 import { fetchTestimonials } from "../services/api"
 import TestimonialCard from "./TestimonialCard"
 
 const TestimonialsSlice = () => {
-  const testimonials = fetchTestimonials()
+  const [testimonials, setTestimonials] = useState([])
+
+  useEffect(() => {
+    const loadTestimonials = async () => {
+      const data = await fetchTestimonials()
+      setTestimonials(data)
+    }
+
+    loadTestimonials()
+  }, [])
 
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
