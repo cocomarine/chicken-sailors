@@ -6,12 +6,9 @@ const TestimonialsSlice = () => {
   const [testimonials, setTestimonials] = useState([])
 
   useEffect(() => {
-    const loadTestimonials = async () => {
-      const data = await fetchTestimonials()
-      setTestimonials(data)
-    }
-
-    loadTestimonials()
+    fetchTestimonials()
+      .then((data) => setTestimonials(data))
+      .catch((error) => console.error("Error fetching testimonials:", error))
   }, [])
 
   return (

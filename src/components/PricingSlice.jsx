@@ -2,17 +2,15 @@ import { useEffect, useState } from "react"
 import { fetchPricingPlans } from "../services/api"
 import PricingCard from "./PricingCard"
 import { Button } from "./ui/button"
+import { use } from "react"
 
 const PricingSlice = () => {
   const [pricingPlans, setPricingPlans] = useState([])
 
   useEffect(() => {
-    const loadPricingPlans = async () => {
-      const data = await fetchPricingPlans()
-      setPricingPlans(data)
-    }
-
-    loadPricingPlans()
+    fetchPricingPlans()
+      .then((data) => setPricingPlans(data))
+      .catch((error) => console.error("Error fetching pricing plans:", error))
   }
   , [])
 
